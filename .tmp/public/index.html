@@ -10,18 +10,37 @@
   </head>
 
   <body>
-    <div ng-view></div>
 
-    <a href="/#/login">Login page</a>
-    <a href="/#/">Tasks page</a>
-    <a href="/#/404">404 page</a>
+    <div class="spinner-container" ng-show="loading">
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+    </div>
+
+    <div class="container nav-wrapper">
+      <header>
+        <div class="logo-container">
+          <h1 class="logo">Productivity Time!</h1>
+        </div>
+        <div class="nav">
+          <a href="/#/" class="nav-item">Tasks</a>
+          <a href="/#/settings" class="nav-item">Settings</a>
+          <a href="/#/logout" class="nav-item" ng-show="currentUser">Logout</a>
+          <a href="/#/login" class="nav-item" ng-hide="currentUser">Login</a>
+        </div>
+      </header>
+    </div>
+
+    <div ng-view></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-route.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-animate.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-sanitize.js"></script>
-    <script src="/js/productivityTime.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="/js/productivityTime.js"></script>
     <script src="/js/routes.js"></script>
     <script src="/js/controllers.js"></script>
   </body>
