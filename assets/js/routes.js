@@ -1,33 +1,43 @@
-app.config(function($routeProvider, $locationProvider) {
+productivityTime.config(function($routeProvider, $locationProvider) {
 
   $routeProvider
 
+  .when('/', {
+    templateUrl: '/templates/tasks.html',
+    controller: 'tasksController'
+  })
+
   .when("/tasks", {
-    templateUrl: '/assets/templates/changePassword.html',
-    controller: 'changePasswordController',
+    templateUrl: '/templates/tasks.html',
+    controller: 'tasksController',
     resolve: {
       "recover": function($http, $route, $rootScope){
-        return $http.get($rootScope.api_url + "/ForgotPassword?resetKey=" + $route.current.params.recover)
+        return $http.get("/someURL" + $route.current.params.thing)
         .then(function(successResponse){
           return successResponse;
         }, function(errorResponse){
-          return $location.path('/logout');
+          return $location.path('/404');
         });
       }
     }
   })
+
   .when("/login", {
-    templateUrl: '/assets/templates/tasksList.html',
+    templateUrl: '/templates/login.html',
     controller: 'authLoginController'
   })
 
   .when("/logout", {
-    templateUrl: '/assets/templates/logout.html',
+    templateUrl: '/templates/login.html',
     controller: 'authLogoutController'
   })
 
   .when("/404", {
-    templateUrl: '/assets/templates/404.html'
+    templateUrl: '/templates/404.html'
+  })
+
+  .otherwise({
+    redirectTo: '/404'
   });
 
   $locationProvider.html5Mode(false);

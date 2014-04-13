@@ -23,7 +23,6 @@ var cssFilesToInject = [
 // (uses Grunt-style wildcard/glob/splat expressions)
 var jsFilesToInject = [
 	'js/dependencies/**/*.js',
-  'bower_components/angular/angular.min.js',
   'bower_components/angular-bootstrap/ui-bootstrap.min.js',
 	'js/**/*.js'
 ];

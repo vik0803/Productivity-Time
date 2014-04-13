@@ -1,6 +1,6 @@
-var app = angular
-  .module('productivitytime', [
+var productivityTime = angular
+  .module('productivityTime', [
     'ngRoute',
     'ngAnimate',
-    'ui.bootstrap',
+    'ui.bootstrap'
 ]);
