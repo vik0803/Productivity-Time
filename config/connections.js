@@ -36,6 +36,15 @@ module.exports.connections = {
     database: 'productivitytime'
   },
 
+  live_postgresql_database: {
+    adapter : 'sails-postgresql',
+    host    : 'ec2-23-23-177-33.compute-1.amazonaws.com',
+    user    : 'ctdfzrmcwcczuq',
+    password: 'yAv9umxYAkwfXD5sRYrtzfOPoA',
+    database: 'dffvid88vruijp',
+    port: '5432'
+  },
+
   // MySQL is the world's most popular relational database.
   // http://en.wikipedia.org/wiki/MySQL
   //
