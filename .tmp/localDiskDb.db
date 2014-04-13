@@ -1,0 +1,92 @@
+{
+  "data": {
+    "nextaction": [],
+    "task": [],
+    "user": [
+      {
+        "email": "sam@phasesolutions.ca",
+        "password": "12341234",
+        "createdAt": "2014-04-13T04:41:42.308Z",
+        "updatedAt": "2014-04-13T04:41:42.308Z",
+        "id": 1
+      }
+    ]
+  },
+  "schema": {
+    "nextaction": {
+      "description": {
+        "type": "string",
+        "defaultsTo": "Enter a next-action!"
+      },
+      "task": {
+        "type": "integer",
+        "model": "task",
+        "foreignKey": true
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "task": {
+      "description": {
+        "type": "string"
+      },
+      "user": {
+        "type": "integer",
+        "model": "user",
+        "foreignKey": true
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    },
+    "user": {
+      "email": {
+        "type": "string",
+        "unique": true
+      },
+      "password": {
+        "type": "string"
+      },
+      "id": {
+        "type": "integer",
+        "autoIncrement": true,
+        "primaryKey": true,
+        "unique": true
+      },
+      "createdAt": {
+        "type": "datetime"
+      },
+      "updatedAt": {
+        "type": "datetime"
+      }
+    }
+  },
+  "counters": {
+    "nextaction": {},
+    "task": {
+      "id": 1
+    },
+    "user": {
+      "id": 1
+    }
+  }
+}

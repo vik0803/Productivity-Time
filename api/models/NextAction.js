@@ -9,6 +9,14 @@ module.exports = {
 
 	attributes: {
 
+    description: {
+      type: 'string',
+      defaultsTo: 'Enter a next-action!'
+    },
+
+    task: {
+      model: 'task'
+    }
 
 	}
 

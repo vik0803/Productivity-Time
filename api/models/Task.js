@@ -9,6 +9,18 @@ module.exports = {
 
 	attributes: {
 
+    description: {
+      type: 'string'
+    },
+
+    actions: {
+      collection: 'nextaction',
+      via: 'task'
+    },
+
+    user: {
+      model: 'user'
+    }
 
 	}
 
