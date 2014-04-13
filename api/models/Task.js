@@ -10,7 +10,8 @@ module.exports = {
 	attributes: {
 
     description: {
-      type: 'string'
+      type: 'string',
+      required: true
     },
 
     actions: {
@@ -19,7 +20,13 @@ module.exports = {
     },
 
     user: {
-      model: 'user'
+      model: 'user',
+      required: true
+    },
+
+    goal: {
+      type: 'string',
+      required: true
     }
 
 	}

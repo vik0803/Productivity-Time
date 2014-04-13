@@ -11,7 +11,7 @@ module.exports = {
 
     description: {
       type: 'string',
-      defaultsTo: 'Enter a next-action!'
+      required: true
     },
 
     task: {

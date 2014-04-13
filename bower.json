@@ -1,0 +1,22 @@
+{
+  "name": "Productivity Time",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Latros/Productivity-Time",
+  "authors": [
+    "Sam Stiles <sam@phasesolutions.ca>"
+  ],
+  "description": "A quick n' dirty app for tracking tasks using the \"end goal, next action\" convention for maximum productivity!",
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
