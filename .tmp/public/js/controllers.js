@@ -7,6 +7,10 @@ productivityTime.controller('authLoginController', function($scope, $rootScope, 
   $scope.email_signin = "";
   $scope.password_signin = "";
 
+  $scope.email_signup = "";
+  $scope.password_signup = "";
+  $scope.password_signup_confirmation = "";
+
   $scope.processLogin = function(){
 
     var data = {
@@ -24,6 +28,34 @@ productivityTime.controller('authLoginController', function($scope, $rootScope, 
       console.log(data);
       $rootScope.applicationError = data;
     });
+  };
+
+  $scope.processSignup = function(){
+
+  if ( $scope.password_signup === $scope.password_signup_confirmation ) {
+
+    var data = {
+      email: $scope.email_signup,
+      password: $scope.password_signup
+    };
+
+    $http.post('/processSignup', data)
+    .success(function(data, status, headers, config){
+      console.log('Success happened!');
+      console.log(JSON.stringify(data, null, 4));
+    })
+    .error(function(data, status, headers, config){
+      console.log('Error happened!');
+      console.log(data);
+      $rootScope.applicationError = data;
+    });
+
+  } else {
+
+    $rootScope.applicationError = "Passwords don't match!"
+
+  }
+
   };
 
 });

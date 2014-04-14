@@ -27,6 +27,15 @@ module.exports = {
       via: 'user'
     }
 
-	}
+  },
+
+  beforeCreate: function(values, next) {
+    var salt = bcrypt.genSaltSync(10);
+    bcrypt.hash(values.password, salt, null, function(err, hash) {
+      if(err) return next(err);
+      values.password = hash;
+      next();
+    });
+  }
 
 };
