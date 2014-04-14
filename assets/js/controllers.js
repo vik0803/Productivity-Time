@@ -2,15 +2,29 @@ productivityTime.controller('tasksController', function($scope, $rootScope){
 
 });
 
-productivityTime.controller('authLoginController', function($scope, $rootScope){
+productivityTime.controller('authLoginController', function($scope, $rootScope, $http){
 
   $scope.email_signin = "";
   $scope.password_signin = "";
 
-  angular.element(document.querySelector('#login')).on('click', function(){
-    console.log(JSON.stringify($scope.email_signin, null, 4));
-    console.log(JSON.stringify($scope.password_signin, null, 4));
-  });
+  $scope.processLogin = function(){
+
+    var data = {
+      email: $scope.email_signin,
+      password: $scope.password_signin
+    };
+
+    $http.post('/processLogin', data)
+    .success(function(data, status, headers, config){
+      console.log('Success happened!');
+      console.log(JSON.stringify(data, null, 4));
+    })
+    .error(function(data, status, headers, config){
+      console.log('Error happened!');
+      console.log(data);
+      $rootScope.applicationError = data;
+    });
+  };
 
 });
 
