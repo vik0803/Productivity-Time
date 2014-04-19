@@ -1,3 +1,5 @@
+var bcrypt = require('bcrypt-nodejs');
+
 /**
  * UserController.js
  *
@@ -29,7 +31,16 @@ module.exports = {
         return res.send(500, 'No user found with that email address!');
       }
 
-      return res.json(user);
+      bcrypt.compare(data.password, user.password, function(err, result){
+
+        if ( result === true ) {
+          console.log('Comparison was true! WAT!');
+          return res.send(200);
+        } else {
+          console.log('Password didn\'t match, redirecting to login...');
+          return res.send(500, 'Incorrect login. Please try again.');
+        }
+      });
 
     });
   },
