@@ -1,4 +1,29 @@
-productivityTime.controller('tasksController', function($scope, $rootScope){
+productivityTime.controller('tasksController', function($scope, $rootScope, $http, tasks){
+
+  $scope.tasks = tasks;
+
+  console.log('Heres the tasks data we got back from the server:');
+  console.log(JSON.stringify(tasks, null, 4));
+
+});
+
+productivityTime.controller('authLogoutController', function($scope, $rootScope, $http, $location){
+
+  $scope.processLogout = function(){
+    $http.get('/processLogout')
+    .success(function(data, status, headers, config){
+      console.log('Success happened!');
+      console.log(JSON.stringify(data, null, 4));
+      $rootScope.currentUser = false;
+      $location.path('/login');
+    })
+    .error(function(data, status, headers, config){
+      console.log('Error happened!');
+      console.log(JSON.stringify(data, null, 4));
+      $rootScope.currentUser = false;
+      $location.path('/login');
+    });
+  };
 
 });
 
@@ -51,6 +76,8 @@ productivityTime.controller('authLoginController', function($scope, $rootScope, 
       .success(function(data, status, headers, config){
         console.log('Success happened!');
         console.log(JSON.stringify(data, null, 4));
+        $rootScope.currentUser = data;
+        $location.path('/tasks');
       })
       .error(function(data, status, headers, config){
         console.log('Error happened!');

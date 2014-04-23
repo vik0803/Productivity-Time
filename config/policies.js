@@ -14,10 +14,12 @@
 
 module.exports.policies = {
 
-  // Default policy for all controllers and actions
-  // (`true` allows public access)
-  '/processLogin': true,
-  '/processSignup': true,
-  '/findTasksByUser': ['sessionAuth']
+  '*': 'sessionAuth',
+
+  UserController: {
+    'processLogin': true,
+    'processSignup': true,
+    'processLogout': true
+  }
 
 };

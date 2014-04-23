@@ -31,9 +31,9 @@
           <h1 class="logo">Productivity Time!</h1>
         </div>
         <div class="nav">
-          <a href="/#/" class="nav-item">Tasks</a>
+          <a href="/#/tasks" class="nav-item">Tasks</a>
           <!-- <a href="/#/settings" class="nav-item">Settings</a> -->
-          <a href="/#/logout" class="nav-item" ng-show="currentUser">Logout</a>
+          <a class="nav-item" ng-show="currentUser" ng-controller="authLogoutController" ng-click="processLogout()">Logout</a>
           <a href="/#/login" class="nav-item" ng-hide="currentUser">Login</a>
         </div>
       </header>

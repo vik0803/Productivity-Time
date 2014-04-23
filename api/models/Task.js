@@ -14,9 +14,13 @@ module.exports = {
       required: true
     },
 
-    actions: {
+    completedActions: {
       collection: 'nextaction',
       via: 'task'
+    },
+
+    currentAction: {
+      model: 'nextaction'
     },
 
     user: {

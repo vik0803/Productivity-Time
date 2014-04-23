@@ -1,11 +1,15 @@
 module.exports.routes = {
   '/processLogin': {
     controller: 'UserController',
-    action: "processLogin"
+    action: 'processLogin'
   },
   '/processSignup': {
     controller: 'UserController',
-    action: "processSignup"
+    action: 'processSignup'
+  },
+  '/processLogout': {
+    controller: 'UserController',
+    action: 'processLogout'
   },
   '/findTasksByUser': {
     controller: 'TaskController',

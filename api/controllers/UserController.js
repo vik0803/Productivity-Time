@@ -51,7 +51,8 @@ module.exports = {
   'processLogout': function(req, res){
 
     // Wipe their session
-    req.session = {};
+    req.session.authenticated = false;
+    req.session.currentUser = {};
 
     res.send(200);
   },
@@ -74,6 +75,9 @@ module.exports = {
         return res.send(500, 'No user found with that email address!');
       }
 
+      console.log('Here\'s your user:\n' + JSON.stringify(user, null, 4));
+      req.session.authenticated = true;
+      req.session.currentUser = user;
       return res.json(user);
     });
   }

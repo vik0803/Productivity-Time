@@ -16,6 +16,11 @@ module.exports = {
 
     task: {
       model: 'task'
+    },
+
+    completed: {
+      type: 'boolean',
+      defaultsTo: false
     }
 
 	}
