@@ -9,9 +9,11 @@
  */
 module.exports = function(req, res, next) {
 
-  // User is allowed, proceed to the next policy, 
+  // User is allowed, proceed to the next policy,
   // or if this is the last policy, the controller
   if (req.session.authenticated) {
+    console.log('Logging the session inside the policy..');
+    console.log(JSON.stringify(req.session, null, 4));
     return next();
   }
 

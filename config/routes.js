@@ -6,5 +6,9 @@ module.exports.routes = {
   '/processSignup': {
     controller: 'UserController',
     action: "processSignup"
+  },
+  '/findTasksByUser': {
+    controller: 'TaskController',
+    action: 'findTasksByUser'
   }
 };

@@ -7,6 +7,7 @@
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   </head>
 
   <body>
@@ -19,7 +20,8 @@
       </div>
     </div>
 
-    <div class="error-container" ng-show="applicationError">
+    <div class="error-container" ng-controller="errorController" id="application-error-display">
+      <div class="close" ng-click="hidePopup()"><i class="fa fa-times"></i></div>
       <h3>{{ applicationError }}</h3>
     </div>
 
@@ -30,7 +32,7 @@
         </div>
         <div class="nav">
           <a href="/#/" class="nav-item">Tasks</a>
-          <a href="/#/settings" class="nav-item">Settings</a>
+          <!-- <a href="/#/settings" class="nav-item">Settings</a> -->
           <a href="/#/logout" class="nav-item" ng-show="currentUser">Logout</a>
           <a href="/#/login" class="nav-item" ng-hide="currentUser">Login</a>
         </div>

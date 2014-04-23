@@ -24,7 +24,7 @@ this["JST"]["assets/templates/tasks.html"] = function(obj) {
 obj || (obj = {});
 var __t, __p = '', __e = _.escape;
 with (obj) {
-__p += '<h1>Tasks list view!</h1>';
+__p += '<div class="project-wrapper">\n  <h4 class="project-title"></h4>\n  <div class="next-action"></div>\n  <div class="end-goal"></div>\n</div>';
 
 }
 return __p

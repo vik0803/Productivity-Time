@@ -32,6 +32,28 @@ body {
   -moz-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
   box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
 }
+.error-container {
+  -webkit-transition: all linear 0.25s;
+  -moz-transition: all linear 0.25s;
+  -o-transition: all linear 0.25s;
+  transition: all linear 0.25s;
+  position: absolute;
+  width: 500px;
+  margin-left: -250px;
+  text-align: center;
+  left: 50%;
+  top: -500px;
+  z-index: 99999;
+  background: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+}
+.error-container h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .nav-wrapper {
   margin-top: 35px;
   margin-bottom: 25px;

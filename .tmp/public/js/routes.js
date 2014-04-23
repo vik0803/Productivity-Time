@@ -11,8 +11,8 @@ productivityTime.config(function($routeProvider, $locationProvider) {
     templateUrl: '/templates/tasks.html',
     controller: 'tasksController',
     resolve: {
-      "recover": function($http, $route, $rootScope){
-        return $http.get("/someURL" + $route.current.params.thing)
+      "recover": function($http, $rootScope, $location){
+        return $http.get("http://localhost:1337/findTasksByUser")
         .then(function(successResponse){
           return successResponse;
         }, function(errorResponse){

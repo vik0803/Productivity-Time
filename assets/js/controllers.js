@@ -2,7 +2,7 @@ productivityTime.controller('tasksController', function($scope, $rootScope){
 
 });
 
-productivityTime.controller('authLoginController', function($scope, $rootScope, $http){
+productivityTime.controller('authLoginController', function($scope, $rootScope, $http, $location){
 
   $scope.email_signin = "";
   $scope.password_signin = "";
@@ -14,9 +14,11 @@ productivityTime.controller('authLoginController', function($scope, $rootScope, 
   $scope.processLogin = function(){
 
     if ( $scope.email_signin.length <= 0 ) {
-      return $rootScope.applicationError = "Please enter an email.";
+      $rootScope.applicationError = "Please enter an email.";
+      return;
     } else if ( $scope.password_signin.length <= 0 ) {
-      return $rootScope.applicationError = "Please enter your password.";
+      $rootScope.applicationError = "Please enter your password.";
+      return;
     }
 
     var data = {
@@ -28,12 +30,13 @@ productivityTime.controller('authLoginController', function($scope, $rootScope, 
     .success(function(data, status, headers, config){
       console.log('Success happened!');
       console.log(JSON.stringify(data, null, 4));
-      $location.path('/tasks')
+      $rootScope.currentUser = data;
+      $location.path('/tasks');
     })
     .error(function(data, status, headers, config){
       console.log('Error happened!');
       console.log(data);
-      $rootScope.applicationError = data;
+      $rootScope.applicationError = data.message;
     });
   };
 
@@ -52,7 +55,7 @@ productivityTime.controller('authLoginController', function($scope, $rootScope, 
       .error(function(data, status, headers, config){
         console.log('Error happened!');
         console.log(data);
-        $rootScope.applicationError = data;
+        $rootScope.applicationError = data.message;
       });
     } else {
       $rootScope.applicationError = "Passwords don't match!";
@@ -61,6 +64,29 @@ productivityTime.controller('authLoginController', function($scope, $rootScope, 
 
 });
 
-productivityTime.controller('authLogoutController', function($scope, $rootScope){
+productivityTime.controller('errorController', function($scope, $rootScope){
 
+  var errorDiv = angular.element(document.querySelector('#application-error-display'));
+  $rootScope.applicationError = '';
+
+  $scope.$watch('applicationError', function(){
+    if ( $rootScope.applicationError !== '' ) {
+      $scope.showPopup();
+    } else {
+      $scope.hidePopup();
+    }
+  });
+
+  $scope.hidePopup = function(){
+    errorDiv.css({
+      'top': '-500px'
+    });
+    $rootScope.applicationError = '';
+  };
+
+  $scope.showPopup = function(){
+    errorDiv.css({
+      'top': '25px'
+    });
+  };
 });

@@ -35,7 +35,10 @@ module.exports = {
 
         if ( result === true ) {
           console.log('Comparison was true! WAT!');
-          return res.send(200);
+          console.log('Here\'s your user:\n' + JSON.stringify(user, null, 4));
+          req.session.authenticated = true;
+          req.session.currentUser = user;
+          return res.send(user);
         } else {
           console.log('Password didn\'t match, redirecting to login...');
           return res.send(500, 'Incorrect login. Please try again.');
